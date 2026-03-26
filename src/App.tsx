@@ -10,10 +10,15 @@ import ProfessionalJourney from './components/ProfessionalJourney';
 import AgenticAISection from './components/AgenticAISection';
 import Projects from './components/Projects';
 import Hierarcho from './components/Hierarcho';
+import ShopProp from './components/ShopProp';
+import OtherProjects from './components/OtherProjects';
+import Education from './components/Education';
+import BlogsSection from './components/BlogsSection';
+import ContactUs from './components/ContactUs';
 import NavigationCard from './components/NavigationCard';
 
 export default function App() {
-  const [currentSection, setCurrentSection] = useState<'landing' | 'journey' | 'projects'>('landing');
+  const [currentSection, setCurrentSection] = useState<string>('landing');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Intersection Observer to detect active section during scroll
@@ -29,8 +34,8 @@ export default function App() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
-          if (id === 'journey' || id === 'projects' || id === 'hierarcho') {
-            setCurrentSection(id as 'journey' | 'projects');
+          if (id === 'journey' || id === 'projects' || id === 'hierarcho' || id === 'shopprop' || id === 'otherprojects' || id === 'education' || id === 'blogs' || id === 'contact') {
+            setCurrentSection(id);
           }
         }
       });
@@ -43,9 +48,19 @@ export default function App() {
       const journeyEl = document.getElementById('journey');
       const projectsEl = document.getElementById('projects');
       const hierarchoEl = document.getElementById('hierarcho');
+      const shoppropEl = document.getElementById('shopprop');
+      const otherprojectsEl = document.getElementById('otherprojects');
+      const educationEl = document.getElementById('education');
+      const blogsEl = document.getElementById('blogs');
+      const contactEl = document.getElementById('contact');
       if (journeyEl) observer.observe(journeyEl);
       if (projectsEl) observer.observe(projectsEl);
       if (hierarchoEl) observer.observe(hierarchoEl);
+      if (shoppropEl) observer.observe(shoppropEl);
+      if (otherprojectsEl) observer.observe(otherprojectsEl);
+      if (educationEl) observer.observe(educationEl);
+      if (blogsEl) observer.observe(blogsEl);
+      if (contactEl) observer.observe(contactEl);
     }, 100);
 
     return () => {
@@ -54,7 +69,7 @@ export default function App() {
     };
   }, [currentSection]);
 
-  const handleNavigate = (section: 'landing' | 'journey' | 'projects') => {
+  const handleNavigate = (section: string) => {
     if (section === 'landing') {
       setCurrentSection('landing');
     } else {
@@ -112,6 +127,11 @@ export default function App() {
               <Projects />
             </div>
             <Hierarcho />
+            <ShopProp />
+            <OtherProjects />
+            <Education />
+            <BlogsSection scrollContainer={scrollContainerRef} />
+            <ContactUs />
           </motion.div>
         )}
       </AnimatePresence>

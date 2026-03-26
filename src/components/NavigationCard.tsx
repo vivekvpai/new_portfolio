@@ -19,7 +19,7 @@ const SocialSquare = ({ children }: { children: React.ReactNode }) => (
 interface NavigationCardProps {
   isCollapsed: boolean;
   activeSection: string;
-  onNavigate: (section: 'landing' | 'journey' | 'projects') => void;
+  onNavigate: (section: string) => void;
 }
 
 const NavigationCard = ({ isCollapsed, activeSection, onNavigate }: NavigationCardProps) => {
@@ -135,8 +135,8 @@ const NavigationCard = ({ isCollapsed, activeSection, onNavigate }: NavigationCa
                 <button
                   key={item.id}
                   onClick={() => {
-                    if (item.id === 'landing' || item.id === 'journey' || item.id === 'projects') {
-                      onNavigate(item.id as 'landing' | 'journey' | 'projects');
+                    if (item.id === 'landing' || item.id === 'journey' || item.id === 'projects' || item.id === 'education' || item.id === 'contact') {
+                      onNavigate(item.id);
                     }
                   }}
                   className={`group relative flex items-center justify-center w-10 h-10 rounded-xl transition-all duration-300 overflow-hidden ${
