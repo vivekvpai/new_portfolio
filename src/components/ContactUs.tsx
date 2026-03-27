@@ -31,7 +31,7 @@ const ContactUs: React.FC<{ id?: string }> = ({ id = 'contact' }) => {
       {/* 2. Top Right Links */}
       <div className="absolute top-12 right-24 md:right-40 z-30 flex flex-col items-end gap-4 md:gap-6">
         <a 
-          href="https://github.com/paivivek002" 
+          href="https://github.com/vivekvpai" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center gap-4 text-black/60 hover:text-black transition-colors group"
@@ -42,7 +42,7 @@ const ContactUs: React.FC<{ id?: string }> = ({ id = 'contact' }) => {
           </div>
         </a>
         <a 
-          href="https://linkedin.com/in/paivivek002" 
+          href="https://www.linkedin.com/in/vivek-v-pai/" 
           target="_blank" 
           rel="noopener noreferrer"
           className="flex items-center gap-4 text-black/60 hover:text-[#0A66C2] transition-colors group"
@@ -53,7 +53,7 @@ const ContactUs: React.FC<{ id?: string }> = ({ id = 'contact' }) => {
           </div>
         </a>
         <a 
-          href="mailto:paivivek002@gmail.com" 
+          href="mailto:itspaivivek@gmail.com" 
           className="flex items-center gap-4 text-black/60 hover:text-[#FF4B4B] transition-colors group"
         >
           <span className="text-xl md:text-2xl font-bold tracking-tight">Email</span>

@@ -87,9 +87,15 @@ const NavigationCard = ({ isCollapsed, activeSection, onNavigate }: NavigationCa
                 <ArrowRight size={18} className="text-black transform transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
               </div>
               <div className="flex gap-1.5 mb-5">
-                <SocialSquare><Linkedin size={11} strokeWidth={2} className="fill-current" /></SocialSquare>
-                <SocialSquare><Github size={11} strokeWidth={2} className="fill-current" /></SocialSquare>
-                <SocialSquare><Mail size={12} strokeWidth={2} /></SocialSquare>
+                <a href="https://www.linkedin.com/in/vivek-v-pai/" target="_blank" rel="noopener noreferrer">
+                  <SocialSquare><Linkedin size={11} strokeWidth={2} className="fill-current" /></SocialSquare>
+                </a>
+                <a href="https://github.com/vivekvpai" target="_blank" rel="noopener noreferrer">
+                  <SocialSquare><Github size={11} strokeWidth={2} className="fill-current" /></SocialSquare>
+                </a>
+                <a href="mailto:itspaivivek@gmail.com">
+                  <SocialSquare><Mail size={12} strokeWidth={2} /></SocialSquare>
+                </a>
               </div>
             </div>
 

@@ -43,45 +43,93 @@ export const PROJECTS: Project[] = [
 /** Other Projects (The scrolling card list at the bottom) */
 export const OTHER_PROJECTS: OtherProject[] = [
   {
-    title: "INTRA CREW",
-    desc: "Internal team management and collaboration platform built to streamline workflows, task tracking, and communication across distributed engineering teams.",
-    color: "#FF4B4B",
-    img: "/images/projects/intracrew.png",
-    buttonText: "View Platform",
-    link: "#",
-  },
-  {
     title: "METRIC REALITIES",
-    desc: "End-to-end real estate SaaS platform enabling agents to build custom property websites in under 10 minutes — with MLS integration, Google Maps, transaction dashboards, and support for 4,800+ users.",
-    color: "#54C64D",
+    desc: "End-to-end real estate SaaS platform enabling agents to build custom property websites in under 10 minutes.",
+    color: "#FF4B4B",
     img: "/images/projects/MR_Logo_new.png",
     buttonText: "Explore Dashboard",
-    link: "#",
+    link: "https://www.metricrealties.com",
+  },
+  {
+    title: "INTRA CREW",
+    desc: "Internal team management and collaboration platform built to streamline workflows, task tracking, and communication.",
+    color: "#54C64D",
+    img: "/images/projects/intracrew.png",
+    buttonText: "View Platform",
+    link: "https://www.intracrew.com/",
   },
   {
     title: "EASYQ SOLUTIONS",
-    desc: "Full-stack compliance management platform for the medical device industry — aligning QMS workflows with ISO 13485 and 21 CFR Part 820 standards through document editing, data visualization, and Spring Boot APIs.",
+    desc: "Full-stack compliance management platform for the medical device industry — ISO 13485 and 21 CFR Part 820 aligned.",
     color: "#3D8FF0",
     img: "/images/projects/eq.png",
     buttonText: "See Solutions",
-    link: "#",
+    link: "https://easyqsolutions.com/",
   },
   {
     title: "OPEN MATE",
-    desc: "Open-source developer productivity tool with a unified CLI, Electron desktop UI, and MCP server — enabling engineers and AI agents (Claude, ChatGPT) to open any project in any IDE instantly. 2,850+ npm downloads.",
+    desc: "Open-source developer productivity tool with a unified CLI, Electron desktop UI, and MCP server. 2,850+ npm downloads.",
     color: "#FF4B4B",
     img: "/images/projects/om.png",
     buttonText: "View Source",
-    link: "#",
+    link: "https://www.npmjs.com/package/openmate",
   },
   {
     title: "ORCA",
-    desc: "Web-based network device management dashboard for Stordis — featuring an AI chatbot (ORCASK) that replaces manual UI interactions with natural language commands, real-time logging at 30+ logs/sec, and full VLAN and interface CRUD.",
+    desc: "Web-based network operations platform for Stordis featuring an AI chatbot (ORCASK) and 30+ logs/sec processing.",
     color: "#54C64D",
     img: "/images/projects/orca.png",
     buttonText: "View Project",
     link: "#",
   },
+  // {
+  //   title: "INTVIEW",
+  //   desc: "Streamlined interview scheduling and candidate evaluation platform for modern hiring teams.",
+  //   color: "#3D8FF0",
+  //   img: "/images/projects/iw.png",
+  //   buttonText: "Try IntView",
+  //   link: "https://intview.io/home",
+  // },
+  // {
+  //   title: "METRICDUST",
+  //   desc: "Product engineering initiative delivering scalable SaaS platforms across healthcare, networking, and AI.",
+  //   color: "#FFB800",
+  //   img: "/images/projects/md.png",
+  //   buttonText: "Visit MetricDust",
+  //   link: "https://www.metricdust.com",
+  // },
+  // {
+  //   title: "NETS & TURF",
+  //   desc: "Real-time sports facility booking platform with automated status updates and admin court controls.",
+  //   color: "#FF4B4B",
+  //   img: "/images/projects/nets.png",
+  //   buttonText: "Explore Platform",
+  //   link: "https://netsandturf.com",
+  // },
+  // {
+  //   title: "PPA PLUS",
+  //   desc: "Fully responsive business website focused on interactive UI and performance-optimized experience.",
+  //   color: "#54C64D",
+  //   img: "/images/projects/ppa.jpg",
+  //   buttonText: "View Site",
+  //   link: "https://plus-ppa.com/",
+  // },
+  // {
+  //   title: "SWATKITCHEN",
+  //   desc: "Visual-first recipe showcase platform complementing Instagram food creation and storytelling.",
+  //   color: "#3D8FF0",
+  //   img: "/images/projects/sk.jpeg",
+  //   buttonText: "See Recipes",
+  //   link: "https://vivekvpai.github.io/swatkitchen.github.io/",
+  // },
+  // {
+  //   title: "SHOOT SHOOT STUDIOS",
+  //   desc: "Modern creative studio portfolio designed to highlight high-end brand identity and professional media projects.",
+  //   color: "#FFB800",
+  //   img: "/images/projects/sss.png",
+  //   buttonText: "View Studio",
+  //   link: "https://www.shootshootstudios.com/",
+  // },
   // {
   //   title: "QUERY 3AI",
   //   desc: "AI-powered database querying and natural language processing interface for complex enterprise data lakes.",
@@ -93,9 +141,10 @@ export const OTHER_PROJECTS: OtherProject[] = [
 ];
 
 /** Hierarcho (HIREKO.AI) feature section data */
-export const HIERARCHO_DATA = {
+export const HIRECO_DATA = {
   title: "HIREKO.AI",
   image: "/images/projects/hireko-web.png",
+  link: "https://www.hireko.ai",
   bubbles: [
     {
       title: "AI INTERVIEW AGENTS",
@@ -123,6 +172,7 @@ export const SHOPPROP_DATA = {
   title: "SHOP PROP",
   webImage: "/images/projects/shopprop-web.png",
   mobileImage: "/images/projects/shopprop-mobile.webp",
+  link: "https://www.shopprop.com/",
   bubbles: [
     {
       title: "MFE ARCHITECTURE",

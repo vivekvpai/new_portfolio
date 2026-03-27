@@ -3,30 +3,39 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useRef, useMemo } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
-import Landing from './components/Landing';
-import ProfessionalJourney from './components/ProfessionalJourney';
-import AgenticAISection from './components/AgenticAISection';
-import Projects from './components/Projects';
-import Hierarcho from './components/Hierarcho';
-import ShopProp from './components/ShopProp';
-import OtherProjects from './components/OtherProjects';
-import Education from './components/Education';
-import BlogsSection from './components/BlogsSection';
-import ContactUs from './components/ContactUs';
-import NavigationCard from './components/NavigationCard';
+import React, { useState, useRef, useMemo } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import Landing from "./components/Landing";
+import ProfessionalJourney from "./components/ProfessionalJourney";
+import AgenticAISection from "./components/AgenticAISection";
+import Projects from "./components/Projects";
+import Hierarcho from "./components/Hireco";
+import ShopProp from "./components/ShopProp";
+import OtherProjects from "./components/OtherProjects";
+import Education from "./components/Education";
+import BlogsSection from "./components/BlogsSection";
+import ContactUs from "./components/ContactUs";
+import NavigationCard from "./components/NavigationCard";
 
 /** All navigable section IDs used by the IntersectionObserver and navigation */
-const SECTION_IDS = ['journey', 'projects', 'hierarcho', 'shopprop', 'otherprojects', 'education', 'blogs', 'contact'] as const;
+const SECTION_IDS = [
+  "journey",
+  "projects",
+  "hierarcho",
+  "shopprop",
+  "otherprojects",
+  "education",
+  "blogs",
+  "contact",
+] as const;
 
 export default function App() {
-  const [currentSection, setCurrentSection] = useState<string>('landing');
+  const [currentSection, setCurrentSection] = useState<string>("landing");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Intersection Observer to detect active section during scroll
   React.useEffect(() => {
-    if (currentSection === 'landing') return;
+    if (currentSection === "landing") return;
 
     const observerOptions = {
       root: scrollContainerRef.current,
@@ -45,8 +54,11 @@ export default function App() {
       });
     };
 
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
-    
+    const observer = new IntersectionObserver(
+      handleIntersection,
+      observerOptions,
+    );
+
     // Wait for ref to stabilize and elements to render
     const timeoutId = setTimeout(() => {
       SECTION_IDS.forEach((id) => {
@@ -62,19 +74,19 @@ export default function App() {
   }, [currentSection]);
 
   const handleNavigate = (section: string) => {
-    if (section === 'landing') {
-      setCurrentSection('landing');
+    if (section === "landing") {
+      setCurrentSection("landing");
     } else {
-      if (currentSection === 'landing') {
+      if (currentSection === "landing") {
         setCurrentSection(section);
         // After transition, scroll to the section
         setTimeout(() => {
           const el = document.getElementById(section);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
+          if (el) el.scrollIntoView({ behavior: "smooth" });
         }, 850); // Wait for transition
       } else {
         const el = document.getElementById(section);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (el) el.scrollIntoView({ behavior: "smooth" });
         setCurrentSection(section);
       }
     }
@@ -83,14 +95,14 @@ export default function App() {
   return (
     <div className="relative w-full h-screen overflow-hidden bg-[#f4f4f4]">
       {/* Persistent Navigation Card */}
-      <NavigationCard 
-        isCollapsed={currentSection !== 'landing'} 
+      <NavigationCard
+        isCollapsed={currentSection !== "landing"}
         activeSection={currentSection}
         onNavigate={handleNavigate}
       />
 
       <AnimatePresence initial={false}>
-        {currentSection === 'landing' ? (
+        {currentSection === "landing" ? (
           <motion.div
             key="landing"
             initial={{ x: "-100%" }}
@@ -99,7 +111,7 @@ export default function App() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="absolute inset-0 z-10"
           >
-            <Landing onKnowMore={() => handleNavigate('journey')} />
+            <Landing onKnowMore={() => handleNavigate("journey")} />
           </motion.div>
         ) : (
           <motion.div

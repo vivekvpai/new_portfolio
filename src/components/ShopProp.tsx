@@ -61,6 +61,35 @@ const ShopProp: React.FC<{ id?: string }> = ({ id }) => {
           ))}
         </div>
       </div>
+
+      {/* View Website Button */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.8 }}
+        className="relative z-30 flex justify-center"
+      >
+        <a
+          href={(SHOPPROP_DATA as any).link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-12 py-5 bg-[#3D8FF0] text-white rounded-full font-bold text-xl shadow-xl hover:shadow-[#3D8FF0]/30 hover:scale-105 transition-all duration-300 flex items-center gap-4 active:scale-95"
+        >
+          <span>Explore ShopProp</span>
+          <svg
+            className="w-6 h-6"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M7 17l9.2-9.2M17 17V7H7" />
+          </svg>
+        </a>
+      </motion.div>
     </section>
   );
 };

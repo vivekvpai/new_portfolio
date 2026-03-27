@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import TechBubble from "./ui/TechBubble";
-import { HIERARCHO_DATA } from "../constants/projects";
+import { HIRECO_DATA } from "../constants/projects";
 
 const Hierarcho: React.FC<{ id?: string }> = ({ id }) => {
   return (
@@ -12,7 +12,7 @@ const Hierarcho: React.FC<{ id?: string }> = ({ id }) => {
       {/* Oversized Background Title */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none pt-20">
         <h2 className="text-[18vw] font-black text-black/[0.08] leading-none tracking-tighter uppercase italic">
-          {HIERARCHO_DATA.title}
+          {HIRECO_DATA.title}
         </h2>
       </div>
 
@@ -62,16 +62,39 @@ const Hierarcho: React.FC<{ id?: string }> = ({ id }) => {
         >
           <div className="relative bg-white/40 backdrop-blur-xl border border-white/40 rounded-[40px] p-8 shadow-2xl flex items-center justify-center">
             <img
-              src={HIERARCHO_DATA.image}
-              alt={HIERARCHO_DATA.title}
+              src={HIRECO_DATA.image}
+              alt={HIRECO_DATA.title}
               className="w-full h-full object-contain"
               referrerPolicy="no-referrer"
             />
           </div>
+
+          {/* View Website Button */}
+          <div className="mt-12 flex justify-center">
+            <a
+              href={(HIRECO_DATA as any).link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-10 py-4 bg-[#FF4B4B] text-white rounded-full font-bold text-lg shadow-lg hover:shadow-[#FF4B4B]/30 hover:scale-105 transition-all duration-300 flex items-center gap-3 active:scale-95"
+            >
+              <span>View Website</span>
+              <svg
+                className="w-5 h-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M7 17l9.2-9.2M17 17V7H7" />
+              </svg>
+            </a>
+          </div>
         </motion.div>
 
         {/* Glassmorphic Message Bubbles */}
-        {HIERARCHO_DATA.bubbles.map((bubble, index) => (
+        {HIRECO_DATA.bubbles.map((bubble, index) => (
           <TechBubble key={index} {...bubble} delay={0.5 + index * 0.2} />
         ))}
       </div>
