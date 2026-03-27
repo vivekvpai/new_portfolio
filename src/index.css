@@ -24,7 +24,12 @@
 .delay-2 { animation-delay: 0.4s; }
 .delay-3 { animation-delay: 0.55s; }
 
-/* Global font family */
-body {
+/* Global font family and scroll behavior */
+html,
+body,
+#root {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden !important;
+  width: 100% !important;
+  position: relative;
 }

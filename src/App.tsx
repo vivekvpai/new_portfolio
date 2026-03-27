@@ -39,8 +39,8 @@ export default function App() {
 
     const observerOptions = {
       root: scrollContainerRef.current,
-      threshold: 0.15, // Threshold lowered for tall sections (better detection)
-      rootMargin: "0px 0px -20% 0px", // Trigger slightly before it hits top center
+      threshold: [0, 0.05, 0.1, 0.2], // Multiple thresholds for more frequent updates
+      rootMargin: "-20% 0px -40% 0px", // Focus on the upper half of the viewport
     };
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
@@ -121,7 +121,22 @@ export default function App() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-0 z-20 overflow-y-auto scroll-smooth"
+            onWheel={(e) => {
+              if (scrollContainerRef.current?.scrollTop === 0 && e.deltaY < 0) {
+                handleNavigate("landing");
+              }
+            }}
+            onTouchStart={(e) => {
+              (scrollContainerRef.current as any).touchStartY = e.touches[0].clientY;
+            }}
+            onTouchMove={(e) => {
+              const touchEndY = e.touches[0].clientY;
+              const touchStartY = (scrollContainerRef.current as any).touchStartY || 0;
+              if (scrollContainerRef.current?.scrollTop === 0 && touchEndY - touchStartY > 50) {
+                handleNavigate("landing");
+              }
+            }}
+            className="absolute inset-0 z-20 overflow-y-auto overflow-x-hidden scroll-smooth"
           >
             <div id="journey">
               <ProfessionalJourney />

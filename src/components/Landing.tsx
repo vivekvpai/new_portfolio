@@ -3,8 +3,32 @@ import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 
 const Landing = ({ onKnowMore }: { onKnowMore: () => void }) => {
+  // Handle wheel scroll to enter
+  const handleWheel = (e: React.WheelEvent) => {
+    if (e.deltaY > 0) {
+      onKnowMore();
+    }
+  };
+
+  // Handle touch scroll for mobile to enter
+  const touchStartY = React.useRef(0);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartY.current = e.touches[0].clientY;
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    const touchEndY = e.touches[0].clientY;
+    if (touchStartY.current - touchEndY > 50) { // Swipe up to enter (scroll down)
+      onKnowMore();
+    }
+  };
+
   return (
-    <div className="min-h-screen w-full bg-[#f4f4f4] relative overflow-hidden font-sans text-black selection:bg-blue-200">
+    <div 
+      onWheel={handleWheel}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      className="min-h-screen w-full bg-[#f4f4f4] relative overflow-hidden font-sans text-black selection:bg-blue-200"
+    >
       
       {/* 1. Top Left Header */}
       <header className="absolute top-12 left-12 z-20 pointer-events-none">

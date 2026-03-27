@@ -48,10 +48,9 @@ const NavigationCard = ({ isCollapsed, activeSection, onNavigate }: NavigationCa
             <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-black/10 [clip-path:polygon(100%_0,100%_100%,0_100%)]" />
 
             {/* Languages Section */}
-            <div className="group cursor-pointer">
+            <div>
               <div className="flex justify-between items-center mb-3">
                 <span className="text-[17px] font-medium tracking-tight">Languages</span>
-                <ArrowRight size={18} className="text-black transform transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
               </div>
               <div className="space-y-3 mb-5">
                 <div className="flex items-center gap-3">
@@ -81,10 +80,9 @@ const NavigationCard = ({ isCollapsed, activeSection, onNavigate }: NavigationCa
             <div className="w-full h-[1px] bg-black/10 mb-5" />
 
             {/* Me Section */}
-            <div className="group cursor-pointer">
+            <div>
               <div className="flex justify-between items-center mb-2.5">
                 <span className="text-[17px] font-medium tracking-tight">Me</span>
-                <ArrowRight size={18} className="text-black transform transition-transform group-hover:translate-x-1" strokeWidth={1.5} />
               </div>
               <div className="flex gap-1.5 mb-5">
                 <a href="https://www.linkedin.com/in/vivek-v-pai/" target="_blank" rel="noopener noreferrer">
