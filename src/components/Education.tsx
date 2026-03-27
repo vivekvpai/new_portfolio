@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { EDUCATION_DATA } from '../constants/education';
 
-const Education: React.FC = () => {
+const Education: React.FC<{ id?: string }> = ({ id }) => {
   return (
-    <section className="w-full bg-[#f4f4f4] relative pt-12 pb-32">
+    <section id={id} className="w-full bg-[#f4f4f4] relative pt-12 pb-32">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-40 left-0 w-[500px] h-[500px] bg-[#3D8FF0]/10 rounded-full blur-[120px]" />

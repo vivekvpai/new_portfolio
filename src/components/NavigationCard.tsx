@@ -113,7 +113,10 @@ const NavigationCard = ({ isCollapsed, activeSection, onNavigate }: NavigationCa
             className="flex flex-col items-center gap-6"
           >
             {navItems.map((item) => {
-              const isActive = activeSection === item.id;
+              const isActive = 
+                item.id === 'education' ? (activeSection === 'education' || activeSection === 'blogs') :
+                item.id === 'projects' ? ['projects', 'hierarcho', 'shopprop', 'otherprojects'].includes(activeSection) :
+                activeSection === item.id;
               return (
                 <button
                   key={item.id}

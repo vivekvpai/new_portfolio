@@ -5,10 +5,11 @@ import { ArrowUpRight } from 'lucide-react';
 import { BLOGS } from '../constants/blogs';
 
 interface BlogsSectionProps {
+  id?: string;
   scrollContainer?: React.RefObject<HTMLDivElement | null>;
 }
 
-const BlogsSection: React.FC<BlogsSectionProps> = ({ scrollContainer }) => {
+const BlogsSection: React.FC<BlogsSectionProps> = ({ id = 'blogs', scrollContainer }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -47,7 +48,7 @@ const BlogsSection: React.FC<BlogsSectionProps> = ({ scrollContainer }) => {
 
   return (
     <section 
-      id="blogs"
+      id={id}
       ref={sectionRef}
       className="relative w-full h-screen overflow-hidden bg-[#f4f4f4] flex items-center"
     >

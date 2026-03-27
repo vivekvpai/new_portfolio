@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Linkedin, Mail, Github } from 'lucide-react';
 
-const ContactUs: React.FC = () => {
+const ContactUs: React.FC<{ id?: string }> = ({ id = 'contact' }) => {
   const pathVariants = {
     hidden: { opacity: 0, x: 150, rotate: 15, scale: 0.85 },
     visible: (custom: number) => ({
@@ -19,7 +19,7 @@ const ContactUs: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="w-full h-screen bg-[#f4f4f4] relative overflow-hidden font-sans text-black selection:bg-blue-200">
+    <section id={id} className="w-full h-screen bg-[#f4f4f4] relative overflow-hidden font-sans text-black selection:bg-blue-200">
       
       {/* 1. Top Left Header */}
       <header className="absolute top-12 left-12 z-20">

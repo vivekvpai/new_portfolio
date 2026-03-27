@@ -30,7 +30,8 @@ export default function App() {
 
     const observerOptions = {
       root: scrollContainerRef.current,
-      threshold: 0.5,
+      threshold: 0.15, // Threshold lowered for tall sections (better detection)
+      rootMargin: "0px 0px -20% 0px", // Trigger slightly before it hits top center
     };
 
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
@@ -126,11 +127,9 @@ export default function App() {
             <div id="otherprojects">
               <OtherProjects />
             </div>
-            <div id="education">
-              <Education />
-            </div>
-            <BlogsSection scrollContainer={scrollContainerRef} />
-            <ContactUs />
+            <Education id="education" />
+            <BlogsSection id="blogs" scrollContainer={scrollContainerRef} />
+            <ContactUs id="contact" />
           </motion.div>
         )}
       </AnimatePresence>
