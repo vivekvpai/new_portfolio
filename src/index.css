@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+/* Landing page letter animations — extracted from Landing.tsx inline <style> */
+@keyframes slideInLetter {
+  0% {
+    opacity: 0;
+    transform: translateX(150px) rotate(15deg) scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg) scale(1);
+  }
+}
+
+.animate-stagger {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: slideInLetter 1.2s cubic-bezier(0.2, 0.9, 0.3, 1.15) forwards;
+}
+
+.delay-0 { animation-delay: 0.1s; }
+.delay-1 { animation-delay: 0.25s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.55s; }
+
+/* Global font family */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}

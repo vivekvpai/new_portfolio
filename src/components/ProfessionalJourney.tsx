@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { FileText, Briefcase, Calendar, Clock, X, Info } from 'lucide-react';
+import { Briefcase, Calendar, Clock, X, Info } from 'lucide-react';
 import { PROFESSIONAL_JOURNEY, JourneyItem } from '../constants/journey';
 
-// Typewriter component for the rotating roles
-const Typewriter = ({ roles }: { roles: string[] }) => {
+// Typewriter component for the rotating roles — wrapped in React.memo to prevent parent re-renders
+const Typewriter = React.memo(({ roles }: { roles: string[] }) => {
   const [roleIndex, setRoleIndex] = React.useState(0);
   const [displayText, setDisplayText] = React.useState('');
   const [isDeleting, setIsDeleting] = React.useState(false);
@@ -50,7 +50,9 @@ const Typewriter = ({ roles }: { roles: string[] }) => {
       />
     </span>
   );
-};
+});
+
+Typewriter.displayName = 'Typewriter';
 
 const ProfessionalJourney = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -80,8 +82,6 @@ const ProfessionalJourney = () => {
       return `translate(calc(-50% + ${xOffset}px), ${yOffset}px) rotate(${rotation}deg) scale(1)`;
     } else {
       // CLOSED STATE: Stacked in the pocket
-      // We want index 0 (Hireko) to be on top, so it should have the largest scale
-      // and be at the base Y position, while older ones peek from behind.
       const baseScale = 0.85; 
       const baseYOffset = 55; 
       const basePeek = isHovered ? -16 : 0; 

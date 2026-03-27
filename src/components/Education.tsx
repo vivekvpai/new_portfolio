@@ -1,44 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
-
-const educationData = [
-  {
-    step: "01",
-    level: "School",
-    institution: "High School Diploma",
-    year: "2014 - 2016",
-    color: "#FF4B4B", // Red
-    desc: "Built a strong foundation in core subjects with a focus on science and mathematics, participating in various technical clubs."
-  },
-  {
-    step: "02",
-    level: "College",
-    institution: "Pre-University Education",
-    year: "2016 - 2018",
-    color: "#54C64D", // Green
-    desc: "Advanced coursework in Physics, Chemistry, and Mathematics. Developed early programming skills and participated in hackathons."
-  },
-  {
-    step: "03",
-    level: "Engineering College",
-    institution: "Bachelor of Technology",
-    year: "2018 - 2022",
-    color: "#3D8FF0", // Blue
-    desc: "Majored in Computer Science. Specialized in software engineering, data structures, and full-stack web development."
-  },
-  {
-    step: "04",
-    level: "Masters",
-    institution: "Master of Science",
-    year: "2023 - 2025",
-    color: "#FF4B4B", // Red
-    desc: "Advanced research and coursework in Artificial Intelligence, Machine Learning, and scalable distributed systems."
-  }
-];
+import { EDUCATION_DATA } from '../constants/education';
 
 const Education: React.FC = () => {
   return (
-    <section id="education" className="w-full bg-[#f4f4f4] relative pt-12 pb-32">
+    <section className="w-full bg-[#f4f4f4] relative pt-12 pb-32">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-40 left-0 w-[500px] h-[500px] bg-[#3D8FF0]/10 rounded-full blur-[120px]" />
@@ -73,7 +39,7 @@ const Education: React.FC = () => {
           <div className="absolute left-[11px] top-8 bottom-8 w-[2px] bg-black/10 rounded-full" />
 
           <div className="flex flex-col gap-16">
-            {educationData.map((item, index) => (
+            {EDUCATION_DATA.map((item, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}

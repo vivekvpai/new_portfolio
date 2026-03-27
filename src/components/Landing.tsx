@@ -1,50 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, ArrowDown, Linkedin, Mail, Github } from 'lucide-react';
-
-// Reusable component for the small circular icons in the "Works" section
-const IconCircle = ({ children }: { children: React.ReactNode }) => (
-  <div className="w-[22px] h-[22px] rounded-full border border-black/50 flex items-center justify-center text-[9px] font-bold text-black bg-white/40 backdrop-blur-sm hover:bg-white/60 transition-colors">
-    {children}
-  </div>
-);
-
-// Reusable component for the small square social icons in the "Me" section
-const SocialSquare = ({ children }: { children: React.ReactNode }) => (
-  <div className="w-[22px] h-[22px] rounded-[4px] border border-black/50 flex items-center justify-center text-black bg-white/40 backdrop-blur-sm hover:bg-white/60 transition-colors">
-    {children}
-  </div>
-);
+import { ArrowRight } from 'lucide-react';
 
 const Landing = ({ onKnowMore }: { onKnowMore: () => void }) => {
-  const customStyles = `
-    @keyframes slideInLetter {
-      0% {
-        opacity: 0;
-        transform: translateX(150px) rotate(15deg) scale(0.85);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(0) rotate(0deg) scale(1);
-      }
-    }
-    
-    .animate-stagger {
-      opacity: 0;
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: slideInLetter 1.2s cubic-bezier(0.2, 0.9, 0.3, 1.15) forwards;
-    }
-
-    .delay-0 { animation-delay: 0.1s; }
-    .delay-1 { animation-delay: 0.25s; }
-    .delay-2 { animation-delay: 0.4s; }
-    .delay-3 { animation-delay: 0.55s; }
-  `;
-
   return (
     <div className="min-h-screen w-full bg-[#f4f4f4] relative overflow-hidden font-sans text-black selection:bg-blue-200">
-      <style>{customStyles}</style>
       
       {/* 1. Top Left Header */}
       <header className="absolute top-12 left-12 z-20 pointer-events-none">

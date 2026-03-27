@@ -2,50 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight } from 'lucide-react';
-
-gsap.registerPlugin(ScrollTrigger);
+import { BLOGS } from '../constants/blogs';
 
 interface BlogsSectionProps {
   scrollContainer?: React.RefObject<HTMLDivElement | null>;
 }
-
-const blogs = [
-  {
-    img: "/images/blogs/mfe-architecture.png",
-    name: "Orchestrator of nested polyglot micro frontends",
-    link: "https://medium.com/@paivivek002/orchestrator-of-nested-polyglot-micro-frontends-6a1600234bae",
-    description: "Breaking framework barriers by orchestrating a deep-nested, polyglot Micro-Frontend architecture with Angular and React.",
-    color: "#FF4B4B" // Red
-  },
-  {
-    img: "/images/blogs/mcp-llm-super-app.png",
-    name: "MCP and LLMs: The Next Super App",
-    link: "https://medium.com/@paivivek002/mcp-llms-the-next-super-app-85a226804d77",
-    description: "Exploring how Model Context Protocol and Large Language Models are shaping the future of super applications.",
-    color: "#54C64D" // Green
-  },
-  {
-    img: "/images/blogs/metric-talks-3rd-webinar.png",
-    name: "MetricTalks 3rd Webinar",
-    link: "https://metricdust.com/reflect/MetricTalks_3rd_Webinar",
-    description: "Insights and key takeaways from the 3rd MetricTalks webinar on modern software engineering practices.",
-    color: "#3D8FF0" // Blue
-  },
-  {
-    img: "/images/blogs/generic-cache-mechanism.png",
-    name: "Generic Cache Mechanism",
-    link: "https://medium.com/@paivivek002/generic-cache-mechanism-for-desired-apis-and-intervals-6aec1379cb1a",
-    description: "A deep dive into building a generic caching mechanism for desired APIs and intervals to boost performance.",
-    color: "#FF4B4B" // Red
-  },
-  {
-    img: "/images/blogs/microfrontend-perfect-for-saas.png",
-    name: "Microfrontend Perfect for SaaS",
-    link: "https://metricdust.com/reflect/microfrontend_perfect_for_saas",
-    description: "Why microfrontend architecture is the perfect fit for scaling modern SaaS applications.",
-    color: "#54C64D" // Green
-  },
-];
 
 const BlogsSection: React.FC<BlogsSectionProps> = ({ scrollContainer }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -107,7 +68,7 @@ const BlogsSection: React.FC<BlogsSectionProps> = ({ scrollContainer }) => {
 
         {/* Blog Cards */}
         <div className="flex gap-8 md:gap-16 items-center h-full">
-          {blogs.map((blog, index) => (
+          {BLOGS.map((blog, index) => (
             <a 
               key={index}
               href={blog.link}
@@ -133,7 +94,7 @@ const BlogsSection: React.FC<BlogsSectionProps> = ({ scrollContainer }) => {
                 <div 
                   className="rounded-2xl p-5 md:p-6 shadow-xl"
                   style={{ 
-                    backgroundColor: blog.color, // Solid color for performance
+                    backgroundColor: blog.color,
                     boxShadow: `0 10px 30px -10px ${blog.color}`
                   }}
                 >

@@ -1,52 +1,10 @@
 import React from 'react';
 import { motion } from 'motion/react';
-
-const projects = [
-  { 
-    title: "INTRA CREW", 
-    desc: "Internal team management and collaboration platform. Streamlining workflows and communication across distributed teams.", 
-    color: "#FF4B4B", // Red
-    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200",
-    buttonText: "View Platform",
-    link: "#"
-  },
-  { 
-    title: "METRIC REALITIES", 
-    desc: "Advanced data visualization and analytics dashboard. Transforming complex metrics into actionable, real-time insights.", 
-    color: "#54C64D", // Green
-    img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200",
-    buttonText: "Explore Dashboard",
-    link: "#"
-  },
-  { 
-    title: "EASYQ SOLUTIONS", 
-    desc: "Streamlined queue management and customer flow optimization system for high-traffic retail environments.", 
-    color: "#3D8FF0", // Blue
-    img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1200",
-    buttonText: "See Solutions",
-    link: "#"
-  },
-  { 
-    title: "OPEN MATE", 
-    desc: "Open-source collaboration tool for remote developer teams, featuring real-time code pairing and architecture mapping.", 
-    color: "#FF4B4B", // Red
-    img: "https://images.unsplash.com/photo-1522071901873-411886a10004?auto=format&fit=crop&q=80&w=1200",
-    buttonText: "View Source",
-    link: "#"
-  },
-  { 
-    title: "QUERY 3AI", 
-    desc: "AI-powered database querying and natural language processing interface for complex enterprise data lakes.", 
-    color: "#54C64D", // Green
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200",
-    buttonText: "Try Query 3AI",
-    link: "#"
-  }
-];
+import { OTHER_PROJECTS } from '../constants/otherProjects';
 
 const OtherProjects: React.FC = () => {
   return (
-    <section id="otherprojects" className="w-full bg-[#f4f4f4] relative flex flex-col items-center pt-24 pb-0 overflow-visible">
+    <section className="w-full bg-[#f4f4f4] relative flex flex-col items-center pt-24 pb-0 overflow-visible">
       
       {/* Oversized Background Title */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none pt-20 z-0">
@@ -57,13 +15,13 @@ const OtherProjects: React.FC = () => {
 
       {/* Sticky Stacking Cards Container */}
       <div className="relative w-[95%] mr-auto mt-32 z-10 pb-0">
-        {projects.map((project, index) => (
+        {OTHER_PROJECTS.map((project, index) => (
           <div 
             key={index} 
             className="sticky flex flex-col items-start justify-start w-full"
             style={{ 
               top: `calc(10vh + ${index * 40}px)`, 
-              marginBottom: index === projects.length - 1 ? '10vh' : '80vh' 
+              marginBottom: '80vh' 
             }}
           >
             <motion.div 

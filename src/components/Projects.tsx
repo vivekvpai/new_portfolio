@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { motion } from 'motion/react';
+import { Project } from '../types';
 import { PROJECTS, LEFT_TECH_STACK, RIGHT_TECH_STACK } from '../constants/projects';
 
 interface ProjectCardProps {
-  project: any;
+  project: Project;
   index: number;
 }
 
-const TechPill: React.FC<{ name: string; icon: string; delay: number; top: string; left?: string; right?: string; rotate: number; scale: number }> = ({ name, icon, delay, top, left, right, rotate, scale }) => {
+interface TechPillProps {
+  name: string;
+  icon: string;
+  delay: number;
+  top: string;
+  left?: string;
+  right?: string;
+  rotate: number;
+  scale: number;
+}
+
+const TechPill: React.FC<TechPillProps> = ({ name, icon, delay, top, left, right, rotate, scale }) => {
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.5, rotate: rotate - 20 }}
@@ -19,19 +31,19 @@ const TechPill: React.FC<{ name: string; icon: string; delay: number; top: strin
       }}
       transition={{
         y: {
-          duration: 4 + Math.random() * 2,
+          duration: 4 + (delay % 3),
           repeat: Infinity,
           ease: "easeInOut",
           delay: delay
         },
         x: {
-          duration: 5 + Math.random() * 2,
+          duration: 5 + (delay % 3),
           repeat: Infinity,
           ease: "easeInOut",
           delay: delay
         },
         rotate: {
-          duration: 6 + Math.random() * 2,
+          duration: 6 + (delay % 3),
           repeat: Infinity,
           ease: "easeInOut",
           delay: delay
@@ -48,32 +60,35 @@ const TechPill: React.FC<{ name: string; icon: string; delay: number; top: strin
   );
 };
 
+/** Precomputed heatmap intensities to avoid Math.random() on every render */
+const HEATMAP_INTENSITIES = Array.from({ length: 96 }, (_, i) => {
+  const options = ['bg-white/10', 'bg-white/20', 'bg-white/40', 'bg-white/60', 'bg-white/80'];
+  // Deterministic seeded selection based on index
+  return options[(i * 7 + 3) % options.length];
+});
+
+const GitHubHeatmap: React.FC = React.memo(() => {
+  return (
+    <div className="grid grid-cols-12 gap-1.5 w-full">
+      {HEATMAP_INTENSITIES.map((intensity, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ delay: i * 0.005, duration: 0.3 }}
+          className={`aspect-square rounded-sm ${intensity}`}
+        />
+      ))}
+    </div>
+  );
+});
+
+GitHubHeatmap.displayName = 'GitHubHeatmap';
+
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   // More aggressive and randomized tilting for a dynamic look
   const rotations = [-12, 8, -5, 12, -8, 6];
   const rotation = rotations[index % rotations.length];
-  
-  // GitHub-style Heatmap Grid
-  const GitHubHeatmap = () => {
-    return (
-      <div className="grid grid-cols-12 gap-1.5 w-full">
-        {[...Array(96)].map((_, i) => {
-          // Randomize intensity like GitHub
-          const intensities = ['bg-white/10', 'bg-white/20', 'bg-white/40', 'bg-white/60', 'bg-white/80'];
-          const intensity = intensities[Math.floor(Math.random() * intensities.length)];
-          return (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.005, duration: 0.3 }}
-              className={`aspect-square rounded-sm ${intensity}`}
-            />
-          );
-        })}
-      </div>
-    );
-  };
 
   return (
     <motion.div

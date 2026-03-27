@@ -17,15 +17,9 @@ const calculateExperienceTime = (startDateStr: string) => {
 
 export const EXPERIENCE_TIME = calculateExperienceTime("2025-07-01");
 
-export interface JourneyItem {
-  role: string;
-  company: string;
-  date: string;
-  duration: string;
-  description: string;
-  techStack: string[];
-  hash: string;
-}
+import { JourneyItem } from '../types';
+
+export type { JourneyItem };
 
 export const PROFESSIONAL_JOURNEY: JourneyItem[] = [
   {

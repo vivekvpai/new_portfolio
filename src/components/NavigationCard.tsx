@@ -1,26 +1,9 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, ArrowDown, Linkedin, Mail, Github, Home, Briefcase, GraduationCap, FolderCode, Phone, FileDown } from 'lucide-react';
-
-// Reusable component for the small circular icons in the "Works" section
-const IconCircle = ({ children }: { children: React.ReactNode }) => (
-  <div className="w-[22px] h-[22px] rounded-full border border-black/50 flex items-center justify-center text-[9px] font-bold text-black bg-white/40 backdrop-blur-sm hover:bg-white/60 transition-colors shadow-[0_2px_5px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.6)]">
-    {children}
-  </div>
-);
-
-// Reusable component for the small square social icons in the "Me" section
-const SocialSquare = ({ children }: { children: React.ReactNode }) => (
-  <div className="w-[22px] h-[22px] rounded-[4px] border border-black/50 flex items-center justify-center text-black bg-white/40 backdrop-blur-sm hover:bg-white/60 transition-colors shadow-[0_2px_5px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.6)]">
-    {children}
-  </div>
-);
-
-interface NavigationCardProps {
-  isCollapsed: boolean;
-  activeSection: string;
-  onNavigate: (section: string) => void;
-}
+import IconCircle from './ui/IconCircle';
+import SocialSquare from './ui/SocialSquare';
+import { NavigationCardProps } from '../types';
 
 const NavigationCard = ({ isCollapsed, activeSection, onNavigate }: NavigationCardProps) => {
   const navItems = [
@@ -155,7 +138,7 @@ const NavigationCard = ({ isCollapsed, activeSection, onNavigate }: NavigationCa
                           radial-gradient(circle at 100% 40%, #54C64D 0%, transparent 75%),
                           radial-gradient(circle at 50% 100%, #3D8FF0 0%, transparent 75%)
                         `,
-                        backgroundColor: '#FF4B4B' // Base color to ensure vibrancy
+                        backgroundColor: '#FF4B4B'
                       }}
                     >
                       {/* Subtle glass overlay to keep it consistent */}

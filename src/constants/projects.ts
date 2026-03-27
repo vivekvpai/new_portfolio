@@ -1,14 +1,6 @@
-export interface Project {
-  id: string;
-  title: string;
-  description: string;
-  techStack: string[];
-  image: string;
-  link?: string;
-  github?: string;
-  color: string;
-  projectCount: number;
-}
+import { Project, TechStackItem } from '../types';
+
+export type { Project };
 
 export const PROJECTS: Project[] = [
   {

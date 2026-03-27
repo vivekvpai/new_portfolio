@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import Landing from './components/Landing';
 import ProfessionalJourney from './components/ProfessionalJourney';
@@ -16,6 +16,9 @@ import Education from './components/Education';
 import BlogsSection from './components/BlogsSection';
 import ContactUs from './components/ContactUs';
 import NavigationCard from './components/NavigationCard';
+
+/** All navigable section IDs used by the IntersectionObserver and navigation */
+const SECTION_IDS = ['journey', 'projects', 'hierarcho', 'shopprop', 'otherprojects', 'education', 'blogs', 'contact'] as const;
 
 export default function App() {
   const [currentSection, setCurrentSection] = useState<string>('landing');
@@ -34,7 +37,7 @@ export default function App() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const id = entry.target.id;
-          if (id === 'journey' || id === 'projects' || id === 'hierarcho' || id === 'shopprop' || id === 'otherprojects' || id === 'education' || id === 'blogs' || id === 'contact') {
+          if ((SECTION_IDS as readonly string[]).includes(id)) {
             setCurrentSection(id);
           }
         }
@@ -43,24 +46,12 @@ export default function App() {
 
     const observer = new IntersectionObserver(handleIntersection, observerOptions);
     
-    // We need to wait for the ref to be stable and elements to be rendered
+    // Wait for ref to stabilize and elements to render
     const timeoutId = setTimeout(() => {
-      const journeyEl = document.getElementById('journey');
-      const projectsEl = document.getElementById('projects');
-      const hierarchoEl = document.getElementById('hierarcho');
-      const shoppropEl = document.getElementById('shopprop');
-      const otherprojectsEl = document.getElementById('otherprojects');
-      const educationEl = document.getElementById('education');
-      const blogsEl = document.getElementById('blogs');
-      const contactEl = document.getElementById('contact');
-      if (journeyEl) observer.observe(journeyEl);
-      if (projectsEl) observer.observe(projectsEl);
-      if (hierarchoEl) observer.observe(hierarchoEl);
-      if (shoppropEl) observer.observe(shoppropEl);
-      if (otherprojectsEl) observer.observe(otherprojectsEl);
-      if (educationEl) observer.observe(educationEl);
-      if (blogsEl) observer.observe(blogsEl);
-      if (contactEl) observer.observe(contactEl);
+      SECTION_IDS.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
     }, 100);
 
     return () => {
@@ -126,10 +117,18 @@ export default function App() {
             <div id="projects">
               <Projects />
             </div>
-            <Hierarcho />
-            <ShopProp />
-            <OtherProjects />
-            <Education />
+            <div id="hierarcho">
+              <Hierarcho />
+            </div>
+            <div id="shopprop">
+              <ShopProp />
+            </div>
+            <div id="otherprojects">
+              <OtherProjects />
+            </div>
+            <div id="education">
+              <Education />
+            </div>
             <BlogsSection scrollContainer={scrollContainerRef} />
             <ContactUs />
           </motion.div>
@@ -138,4 +137,3 @@ export default function App() {
     </div>
   );
 }
-
