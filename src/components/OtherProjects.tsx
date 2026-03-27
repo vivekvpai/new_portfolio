@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { OTHER_PROJECTS } from '../constants/otherProjects';
+import { OTHER_PROJECTS } from '../constants/projects';
 
 const OtherProjects: React.FC = () => {
   return (
@@ -32,11 +32,11 @@ const OtherProjects: React.FC = () => {
               className="w-full min-h-[70vh] bg-white/60 backdrop-blur-3xl border border-white/60 border-l-0 rounded-r-[40px] shadow-[20px_30px_80px_rgba(0,0,0,0.12)] p-6 md:p-12 flex flex-col md:flex-row gap-12 items-center origin-top"
             >
               {/* Image side */}
-              <div className="w-full md:w-3/5 h-[30vh] md:h-[50vh] rounded-[24px] overflow-hidden border border-white/50 shadow-inner bg-white/40 shrink-0">
+              <div className="w-full md:w-3/5 h-[30vh] md:h-[50vh] rounded-[24px] overflow-hidden border border-white/50 shadow-inner bg-white/40 shrink-0 p-8 flex items-center justify-center">
                 <img 
                   src={project.img} 
                   alt={project.title} 
-                  className="w-full h-full object-cover mix-blend-multiply opacity-90" 
+                  className="w-full h-full object-contain" 
                   referrerPolicy="no-referrer"
                 />
               </div>

@@ -1,39 +1,54 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import TechBubble from './ui/TechBubble';
+import React from "react";
+import { motion } from "motion/react";
+import TechBubble from "./ui/TechBubble";
+import { HIERARCHO_DATA } from "../constants/projects";
 
-const Hierarcho: React.FC = () => {
-  const bubbles = [
-    { title: "INCOMING DATA", desc: "Real-time synchronization protocol active. Monitoring multi-node data streams for consistency.", color: "#FF4B4B", pos: "top-[10%] left-[-5%]" },
-    { title: "SYSTEM ANALYSIS", desc: "Deep-nested property search completed. Hierarchical relationships mapped and indexed.", color: "#54C64D", pos: "top-[45%] right-[-5%]" },
-    { title: "RENDER STATUS", desc: "Spatial 3D visualization engine operational. High-fidelity hierarchy rendering in progress.", color: "#3D8FF0", pos: "bottom-[5%] left-[-2%]" }
-  ];
-
+const Hierarcho: React.FC<{ id?: string }> = ({ id }) => {
   return (
-    <section className="min-h-screen w-full bg-[#f4f4f4] relative flex flex-col items-center pt-48 pb-24 overflow-hidden">
+    <section
+      id={id}
+      className="min-h-screen w-full bg-[#f4f4f4] relative flex flex-col items-center pt-48 pb-24 overflow-hidden"
+    >
       {/* Oversized Background Title */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full text-center pointer-events-none select-none pt-20">
-        <h2 className="text-[22vw] font-black text-black/[0.08] leading-none tracking-tighter uppercase italic">
-          HIREKO.AI
+        <h2 className="text-[18vw] font-black text-black/[0.08] leading-none tracking-tighter uppercase italic">
+          {HIERARCHO_DATA.title}
         </h2>
       </div>
 
       {/* Central Schematic Area */}
       <div className="relative z-10 w-full max-w-5xl aspect-square md:aspect-video flex items-center justify-center">
-        
         {/* SVG Data Lines (Connecting Laptop to Bubbles) */}
-        <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-20" viewBox="0 0 1000 600">
-          <motion.path 
-            d="M 500 300 L 250 150" stroke="#FF4B4B" strokeWidth="2" fill="none" strokeDasharray="10 10"
-            animate={{ strokeDashoffset: [0, -100] }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-20"
+          viewBox="0 0 1000 600"
+        >
+          <motion.path
+            d="M 500 300 L 250 150"
+            stroke="#FF4B4B"
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="10 10"
+            animate={{ strokeDashoffset: [0, -100] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
           />
-          <motion.path 
-            d="M 500 300 L 750 320" stroke="#54C64D" strokeWidth="2" fill="none" strokeDasharray="10 10"
-            animate={{ strokeDashoffset: [0, -100] }} transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          <motion.path
+            d="M 500 300 L 750 320"
+            stroke="#54C64D"
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="10 10"
+            animate={{ strokeDashoffset: [0, -100] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
           />
-          <motion.path 
-            d="M 500 300 L 280 520" stroke="#3D8FF0" strokeWidth="2" fill="none" strokeDasharray="10 10"
-            animate={{ strokeDashoffset: [0, -100] }} transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+          <motion.path
+            d="M 500 300 L 280 520"
+            stroke="#3D8FF0"
+            strokeWidth="2"
+            fill="none"
+            strokeDasharray="10 10"
+            animate={{ strokeDashoffset: [0, -100] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
           />
         </svg>
 
@@ -45,22 +60,21 @@ const Hierarcho: React.FC = () => {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="relative z-20 w-full max-w-2xl"
         >
-          <div className="relative bg-white/40 backdrop-blur-xl border border-white/40 rounded-[40px] p-4 shadow-2xl">
-            <img 
-              src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&q=80&w=1200" 
-              alt="Hierarcho Core" 
-              className="w-full h-auto object-contain rounded-[32px] mix-blend-multiply opacity-90"
+          <div className="relative bg-white/40 backdrop-blur-xl border border-white/40 rounded-[40px] p-8 shadow-2xl flex items-center justify-center">
+            <img
+              src={HIERARCHO_DATA.image}
+              alt={HIERARCHO_DATA.title}
+              className="w-full h-full object-contain"
               referrerPolicy="no-referrer"
             />
           </div>
         </motion.div>
 
         {/* Glassmorphic Message Bubbles */}
-        {bubbles.map((bubble, index) => (
+        {HIERARCHO_DATA.bubbles.map((bubble, index) => (
           <TechBubble key={index} {...bubble} delay={0.5 + index * 0.2} />
         ))}
       </div>
-
     </section>
   );
 };

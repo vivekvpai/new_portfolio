@@ -60,3 +60,9 @@ export interface NavigationCardProps {
   activeSection: string;
   onNavigate: (section: string) => void;
 }
+export interface BubbleItem {
+  title: string;
+  desc: string;
+  color: string;
+  pos: string;
+}

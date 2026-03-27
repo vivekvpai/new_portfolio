@@ -1,36 +1,44 @@
-import { EducationItem } from '../types';
+import { EducationItem } from "../types";
 
 export const EDUCATION_DATA: EducationItem[] = [
   {
     step: "01",
-    level: "School",
-    institution: "High School Diploma",
-    year: "2014 - 2016",
+    level: "School (SSLC)",
+    institution: "St Michels English School",
+    year: "2015 - 2016",
     color: "#FF4B4B",
-    desc: "Built a strong foundation in core subjects with a focus on science and mathematics, participating in various technical clubs."
+    desc: "Percentage: 90%",
   },
   {
     step: "02",
-    level: "College",
-    institution: "Pre-University Education",
+    level: "College (PUC)",
+    institution: "Cambridge PU College",
     year: "2016 - 2018",
     color: "#54C64D",
-    desc: "Advanced coursework in Physics, Chemistry, and Mathematics. Developed early programming skills and participated in hackathons."
+    desc: "Percentage: 86% PCMCs",
   },
   {
     step: "03",
-    level: "Engineering College",
-    institution: "Bachelor of Technology",
+    level: "Engineering (B.E.)",
+    institution: "Don Bosco Institute of Technology",
     year: "2018 - 2022",
     color: "#3D8FF0",
-    desc: "Majored in Computer Science. Specialized in software engineering, data structures, and full-stack web development."
+    desc: "Information Science | 8.1 CGPA",
   },
   {
     step: "04",
-    level: "Masters",
-    institution: "Master of Science",
-    year: "2023 - 2025",
+    level: "PG Diploma",
+    institution: "IIIT Bangalore & UpGrad",
+    year: "2022 - 2023",
     color: "#FF4B4B",
-    desc: "Advanced research and coursework in Artificial Intelligence, Machine Learning, and scalable distributed systems."
-  }
+    desc: "Software Development | 7.5 CGPA",
+  },
+  {
+    step: "05",
+    level: "Masters (MSc)",
+    institution: "Liverpool John Moores University & UpGrad",
+    year: "2023 - 2025",
+    color: "#54C64D",
+    desc: "Computer Science | 65%",
+  },
 ];
