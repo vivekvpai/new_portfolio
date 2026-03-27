@@ -8,7 +8,6 @@ const Education: React.FC<{ id?: string }> = ({ id }) => {
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-40 left-0 w-[500px] h-[500px] bg-[#3D8FF0]/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-40 right-0 w-[600px] h-[600px] bg-[#FF4B4B]/10 rounded-full blur-[150px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row gap-20 relative z-10">
